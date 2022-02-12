@@ -44,7 +44,7 @@ let timer = function() {
 
     const displayQuests = () => {
         if (seconds > 0) {
-            mainEl.textContent = question1
+            welcomeEl.textContent = quizQuestions[0]
         }
     }
 
@@ -64,7 +64,7 @@ const quizQuestions = [
          b: `Physical Graffiti`,
          c: `Led Zeppelin IV`,
          d: `Presence`,
-         correct: `b`
+         correctAns: `b`
     },
 
     question2 = 
@@ -74,7 +74,7 @@ const quizQuestions = [
         b: `Red`,
         c: `Purple`,
         d: `Green`,
-        correct: `c`
+        correctAns: `c`
     },
 
     question3 = 
@@ -84,7 +84,7 @@ const quizQuestions = [
         b: `Mordor`,
         c: `London`,
         d: `California`,
-        correct: `a`
+        correctAns: `a`
     },
 
     question4 = 
@@ -94,7 +94,7 @@ const quizQuestions = [
         b: `Five dollars more`,
         c: `Eight dollars more`,
         d: `A dollar more`,
-        correct: `d`
+        correctAns: `d`
     },
 
     question5 = 
@@ -104,7 +104,7 @@ const quizQuestions = [
         b: `11`,
         c: `9`,
         d: `12`,
-        correct: `b`
+        correctAns: `b`
     },
         
     question6 = 
@@ -114,7 +114,7 @@ const quizQuestions = [
         b: `8`,
         c: `7`,
         d: `10`,
-        correct: `a`
+        correctAns: `a`
     },
 
     question7 = 
@@ -124,7 +124,7 @@ const quizQuestions = [
         b: `Tea for One`,
         c: `Achilles Last Stand`,
         d: `In My Time of Dying`,
-        correct: `d`
+        correctAns: `d`
     },
 
     question8 = 
@@ -134,7 +134,7 @@ const quizQuestions = [
         b: `Money`,
         c: `Nothing`,
         d: `Your emotions`,
-        correct: `c`
+        correctAns: `c`
     },
 
     question9 = 
@@ -144,7 +144,7 @@ const quizQuestions = [
         b: `The Evil One`,
         c: `Jimmy`,
         d: `A girl so fair`,
-        correct: `d`
+        correctAns: `d`
     },
 
     question10 = 
@@ -154,7 +154,7 @@ const quizQuestions = [
         b: `He's standing on the wrong block`,
         c: `He wanted a woman, never bargained for her`,
         d: `The Levee is going to break`,
-        correct: `b`
+        correctAns: `b`
     }
 
 ];
@@ -173,5 +173,6 @@ const quizQuestions = [
 
 
 // Trying to get the click to work
-beginQuiz.addEventListener('click', timer, displayQuests);
+beginQuiz.addEventListener('click', timer);
+beginQuiz.addEventListener('click', displayQuests);
 
