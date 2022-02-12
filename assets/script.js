@@ -3,26 +3,53 @@
 //Step 3, code the leader board
 
 let beginQuiz = document.querySelector('#start-quiz');
-let mainEl = document.getElementById('main')
+let mainEl = document.getElementById('main');
+let welcomeEl = document.getElementById('welcome');
+let timerText = document.getElementById('timer-display');
 
+let questionEl = document.createElement('h2');
+let choices = document.createElement('ul');
+let a = document.createElement('li');
+a.setAttribute('id', 'a');
+let b = document.createElement('li');
+b.setAttribute('id', 'b');
+let c = document.createElement('id','c');
+c.setAttribute('id', 'c');
+let d = document.createElement('li');
+d.setAttribute('id', 'd');
+
+let correctAns = true
+
+
+
+
+let seconds = 60;
 
 // My timer function, is 60 seconds too short? 
 let timer = function() {
-    let seconds = 60;
-
     let countdown = setInterval(function () {
-        if (seconds === 0) {
-            clearInterval(countdown);
-        }
-        else {
-            mainEl.textContent = seconds;
+        if (seconds > 0) {
             seconds --;
+            timerText.textContent = seconds;
         }
+
+        else {
+           clearInterval(countdown); 
+        };
     }, 1000)
 };
 
 
 // Display the quiz questions
+
+    const displayQuests = () => {
+        if (seconds > 0) {
+            mainEl.textContent = question1
+        }
+    }
+
+
+
 
 
 
@@ -132,8 +159,19 @@ const quizQuestions = [
 
 ];
 
+// Game over functions
+
+
+
+
+
+
+
+
+
+
 
 
 // Trying to get the click to work
-beginQuiz.addEventListener('click', timer);
+beginQuiz.addEventListener('click', timer, displayQuests);
 
