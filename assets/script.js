@@ -24,7 +24,9 @@ c.setAttribute('id', 'c');
 let d = document.createElement('li');
 d.setAttribute('id', 'd');
 
-let seconds = 60;
+
+
+let seconds = 10;
 
 // All of the quiz questions, not about JS. 
 
@@ -142,22 +144,26 @@ let timer = function() {
           }
 
          else {
-              clearInterval(countdown); 
+            endQuiz();
+            clearInterval(countdown); 
           };
         }, 1000)
-         };
+    };
 
 const startQuiz = () => {
+    
+    event.preventDefault();
     welcomeEl.innerHTML= '';
     mainEl.appendChild(timerText);
-        timer();
-        event.preventDefault();
-        if (seconds > 0) {
-            displayQuests();
-        }
-        else {
-            gameOver();
-        }
+
+
+    a.addEventListener('click', checkAns);
+    b.addEventListener('click', checkAns);
+    c.addEventListener('click', checkAns);
+    d.addEventListener('click', checkAns);
+
+    timer();
+    displayQuests();
 };
 
 
@@ -165,19 +171,40 @@ const startQuiz = () => {
 // Display questions function
 
   const displayQuests = () => {
-        
+    
+
+   if (seconds != 0 && i < quizQuestions.length) {
+       questionEl.textContent = quizQuestions[i].question
+
+       a.textContent = quizQuestions[i].a;
+       b.textContent = quizQuestions[i].b;
+       c.textContent = quizQuestions[i].c;
+       d.textContent = quizQuestions[i].d;
+
+
+        mainEl.appendChild(choices);
+        choices.appendChild(a);
+         choices.appendChild(b);
+         choices.appendChild(c);
+        choices.appendChild(d);
+         
+
+   }
+    
     }
 
 
 
-// Incorrect answer function
+//Check answer function
+    const checkAns = () => {
 
+    }
 
 
 
 // Game over functions
-    const gameOver = () => {
-
+    const endQuiz = () => {
+        let seconds = 0;
     }
 
 
@@ -190,6 +217,5 @@ const startQuiz = () => {
 
 
 
-// Trying to get the click to work
+// Event Listeners
 beginQuiz.addEventListener('click', startQuiz);
-
