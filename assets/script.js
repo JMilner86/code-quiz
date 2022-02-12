@@ -14,24 +14,25 @@ let bodyEl = document.querySelector ('#body')
 
 
 
-let questionEl = document.createElement('h2');
+let questionEl = document.createElement('h3');
 let choices = document.createElement('ul');
 let a = document.createElement('li');
 a.setAttribute('id', 'a');
 let b = document.createElement('li');
 b.setAttribute('id', 'b');
-let c = document.createElement('id','c');
+let c = document.createElement('li');
 c.setAttribute('id', 'c');
 let d = document.createElement('li');
 d.setAttribute('id', 'd');
 
 
-
-let seconds = 10;
+let gameEnd = false
+let seconds = 60;
+let i = 0;
 
 // All of the quiz questions, not about JS. 
 
-let correctAns = true
+
 const quizQuestions = [
 
     {
@@ -134,7 +135,9 @@ let timer = function() {
                seconds --;
               timerText.textContent = seconds;
           }
-
+        else if (gameEnd = true) {
+            clearInterval(countdown);
+        }
          else {
             endQuiz();
             clearInterval(countdown); 
@@ -177,11 +180,14 @@ const startQuiz = () => {
     choices.appendChild(b);
     choices.appendChild(c);
     choices.appendChild(d);
-         
-        welcomeEl.appendChild(choices);
-        welcomeEl.appendChild(questionEl);
 
 
+    welcomeEl.appendChild(questionEl);     
+    welcomeEl.appendChild(choices);
+
+   }
+   else {
+       endQuiz();
    }
     
     };
@@ -189,16 +195,27 @@ const startQuiz = () => {
 
 
 //Check answer function
-    const checkAns = () => {
-
-    }
-
-
+    const checkAns = (Option) => {
+       if (Option.target.id === quizQuestions[i].correctAns) {
+        i++;
+        welcomeEl.textContent = 'Correct!'
+        displayQuest();
+       }
+       else {
+           welcomeEl.textContent = 'Incorrect!'
+           seconds -= 10;
+           i++;
+           displayQuest();
+       }
+    };
 
 // Game over functions
     const endQuiz = () => {
-        let seconds = 0;
-    }
+        gameEnd = true;
+       mainEl.textContent = `The quiz is over! Type your initials below to save your score!`
+    };
+
+    
 
 
 
