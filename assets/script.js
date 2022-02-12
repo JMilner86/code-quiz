@@ -2,10 +2,16 @@
 // Step 2, code the questions
 //Step 3, code the leader board
 
+
+
+
+// Dynamic HTML declarations
 let beginQuiz = document.querySelector('#start-quiz');
 let mainEl = document.getElementById('main');
 let welcomeEl = document.getElementById('welcome');
-let timerText = document.getElementById('timer-display');
+let timerText = document.createElement('h3');
+
+
 
 let questionEl = document.createElement('h2');
 let choices = document.createElement('ul');
@@ -18,43 +24,11 @@ c.setAttribute('id', 'c');
 let d = document.createElement('li');
 d.setAttribute('id', 'd');
 
-let correctAns = true
-
-
-
-
 let seconds = 60;
 
-// My timer function, is 60 seconds too short? 
-let timer = function() {
-    let countdown = setInterval(function () {
-        if (seconds > 0) {
-            seconds --;
-            timerText.textContent = seconds;
-        }
-
-        else {
-           clearInterval(countdown); 
-        };
-    }, 1000)
-};
-
-
-// Display the quiz questions
-
-    const displayQuests = () => {
-        if (seconds > 0) {
-            welcomeEl.textContent = quizQuestions[0]
-        }
-    }
-
-
-
-
-
-
-
 // All of the quiz questions, not about JS. 
+
+let correctAns = true
 const quizQuestions = [
 
     question1 = 
@@ -159,8 +133,52 @@ const quizQuestions = [
 
 ];
 
-// Game over functions
+// Start quiz functions
+let timer = function() {
+        let countdown = setInterval(function () {
+          if (seconds > 0) {
+               seconds --;
+              timerText.textContent = seconds;
+          }
 
+         else {
+              clearInterval(countdown); 
+          };
+        }, 1000)
+         };
+
+const startQuiz = () => {
+    welcomeEl.innerHTML= '';
+    mainEl.appendChild(timerText);
+        timer();
+        event.preventDefault();
+        if (seconds > 0) {
+            displayQuests();
+        }
+        else {
+            gameOver();
+        }
+};
+
+
+
+// Display questions function
+
+  const displayQuests = () => {
+        
+    }
+
+
+
+// Incorrect answer function
+
+
+
+
+// Game over functions
+    const gameOver = () => {
+
+    }
 
 
 
@@ -173,6 +191,5 @@ const quizQuestions = [
 
 
 // Trying to get the click to work
-beginQuiz.addEventListener('click', timer);
-beginQuiz.addEventListener('click', displayQuests);
+beginQuiz.addEventListener('click', startQuiz);
 
