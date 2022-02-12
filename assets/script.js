@@ -16,6 +16,7 @@ let bodyEl = document.querySelector ('#body')
 
 let questionEl = document.createElement('h3');
 let choices = document.createElement('ul');
+choices.setAttribute('class', 'answer-list')
 let a = document.createElement('li');
 a.setAttribute('id', 'a');
 let b = document.createElement('li');
@@ -196,12 +197,14 @@ const startQuiz = () => {
     };
 
 
-
+    let userPoints = 0;
 //Check answer function
     const checkAns = (Option) => {
+        
        if (Option.target.id === quizQuestions[i].correctAns) {
         i++;
         welcomeEl.textContent = 'Correct!'
+        userPoints += 10;
         displayQuest();
        }
        else {
@@ -215,13 +218,15 @@ const startQuiz = () => {
 // Game over functions
     const endQuiz = () => {
         gameEnd = true;
-       mainEl.textContent = `The quiz is over! Type your initials below to save your score!`
+        mainEl.textContent = `The quiz is over!  ` + `Final score ` +  ` ` + userPoints + ` Type your initials below to save your score!`;
     };
 
 
     
     const saveScores = () => {
-        let userScore = document.createElement('li')
+        let userScore = document.createElement('li');
+        userScore.setAttribute('id', 'scores');
+
     };
 
 
