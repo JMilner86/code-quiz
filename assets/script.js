@@ -137,10 +137,13 @@ let timer = function() {
           }
         else if (gameEnd = true) {
             clearInterval(countdown);
+            endQuiz();
         }
          else {
-            endQuiz();
+            welcomeEl.textContent = ''
+            mainEl.textContent = ''
             clearInterval(countdown); 
+            endQuiz();
           };
         }, 1000)
     };
@@ -215,17 +218,14 @@ const startQuiz = () => {
        mainEl.textContent = `The quiz is over! Type your initials below to save your score!`
     };
 
+
     
+    const saveScores = () => {
+        let userScore = document.createElement('li')
+    };
 
 
 
 
-
-
-
-
-
-
-
-// Event Listeners
+// Event Listener
 beginQuiz.addEventListener('click', startQuiz);
