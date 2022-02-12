@@ -7,9 +7,10 @@
 
 // Dynamic HTML declarations
 let beginQuiz = document.querySelector('#start-quiz');
-let mainEl = document.getElementById('main');
-let welcomeEl = document.getElementById('welcome');
+let mainEl = document.querySelector('#main');
+let welcomeEl = document.querySelector('#welcome');
 let timerText = document.createElement('h3');
+let bodyEl = document.querySelector ('#body')
 
 
 
@@ -33,7 +34,6 @@ let seconds = 10;
 let correctAns = true
 const quizQuestions = [
 
-    question1 = 
     {
          question: `On which of the following albums did the song "Houses Of The Holy" appear?`,
          a: `Houses Of The Holy`,
@@ -43,7 +43,6 @@ const quizQuestions = [
          correctAns: `b`
     },
 
-    question2 = 
     {
         question: `What color was the umbrella in the song "Living Loving Maid"?`,
         a: `Blue`,
@@ -53,7 +52,6 @@ const quizQuestions = [
         correctAns: `c`
     },
 
-    question3 = 
     {
         question: `Where was Robert Plant going, with his "rider" by his side?`,
         a: `Rosedale`,
@@ -63,7 +61,6 @@ const quizQuestions = [
         correctAns: `a`
     },
 
-    question4 = 
     {
         question:`By how much money has the price you pay to nowhere increased?`,
         a: `Ten dollars more`,
@@ -73,7 +70,6 @@ const quizQuestions = [
         correctAns: `d`
     },
 
-    question5 = 
     {
         question: `Supposedly, Robert and "Rosie" have another child on the way, how many will they have then?`,
         a: `10`,
@@ -83,7 +79,7 @@ const quizQuestions = [
         correctAns: `b`
     },
         
-    question6 = 
+
     {
         question: `How many Led Zeppelin songs are named after foods?`,
         a: `6`,
@@ -93,7 +89,6 @@ const quizQuestions = [
         correctAns: `a`
     },
 
-    question7 = 
     {
         question: `What is the longest song released on Led Zeppelin's studio albums?`,
         a: `Carouselambra`,
@@ -103,7 +98,6 @@ const quizQuestions = [
         correctAns: `d`
     },
 
-    question8 = 
     {
         question: `What can you hide from Tom?`,
         a: `Anything`,
@@ -113,7 +107,6 @@ const quizQuestions = [
         correctAns: `c`
     },
 
-    question9 = 
     {
         question: `Who did Robert meet in Mordor?`,
         a: `Gollum`,
@@ -123,7 +116,6 @@ const quizQuestions = [
         correctAns: `d`
     },
 
-    question10 = 
     {
         question: `Why is Robert a fool in the rain?`,
         a: `'Cause he loves her, and she don't want him no more`,
@@ -162,36 +154,37 @@ const startQuiz = () => {
     c.addEventListener('click', checkAns);
     d.addEventListener('click', checkAns);
 
+    
     timer();
-    displayQuests();
+    displayQuest();
 };
 
 
 
 // Display questions function
 
-  const displayQuests = () => {
-    
-
+  const displayQuest = () => {
    if (seconds != 0 && i < quizQuestions.length) {
-       questionEl.textContent = quizQuestions[i].question
+       
+    questionEl.textContent = quizQuestions[i].question
 
-       a.textContent = quizQuestions[i].a;
-       b.textContent = quizQuestions[i].b;
-       c.textContent = quizQuestions[i].c;
-       d.textContent = quizQuestions[i].d;
+    a.textContent = quizQuestions[i].a;
+    b.textContent = quizQuestions[i].b;
+    c.textContent = quizQuestions[i].c;
+    d.textContent = quizQuestions[i].d;
 
-
-        mainEl.appendChild(choices);
-        choices.appendChild(a);
-         choices.appendChild(b);
-         choices.appendChild(c);
-        choices.appendChild(d);
+    choices.appendChild(a);
+    choices.appendChild(b);
+    choices.appendChild(c);
+    choices.appendChild(d);
          
+        welcomeEl.appendChild(choices);
+        welcomeEl.appendChild(questionEl);
+
 
    }
     
-    }
+    };
 
 
 
