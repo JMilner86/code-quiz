@@ -4,15 +4,27 @@
 
 let beginQuiz = document.querySelector("#start-quiz");
 let timerDisplay = document.createElement("p")
+let mainEl = document.getElementById("main")
+
+// My timer function, is 60 seconds too short?
+let timer = function() {
+    let seconds = 60;
+
+    let countdown = setInterval(function () {
+        if (seconds === undefined) {
+            clearInterval(countdown);
+        }
+        else {
+            mainEl.textContent = seconds;
+            seconds --;
+        }
+    }, 1000)
+};
 
 
-const timer = () => {
-    timerDisplay.textContent("60")
-}
-
-beginQuiz.addEventListener("click", timer(60));
 
 
+// All of the quiz questions, not about JS. 
 const quizQuestions = [
 
     question1 = 
@@ -116,3 +128,8 @@ const quizQuestions = [
     }
 
 ]
+
+
+
+
+beginQuiz.addEventListener("click", timer());
