@@ -218,14 +218,16 @@ const startQuiz = () => {
 // Game over functions
     const endQuiz = () => {
         gameEnd = true;
-        mainEl.textContent = `The quiz is over!  ` + `Final score ` +  ` ` + userPoints + ` Type your initials below to save your score!`;
+        mainEl.textContent = `The quiz is over!`
+        saveScores();
     };
 
 
     
     const saveScores = () => {
-        let userScore = document.createElement('li');
-        userScore.setAttribute('id', 'scores');
+        
+        
+
 
     };
 
@@ -234,3 +236,36 @@ const startQuiz = () => {
 
 // Event Listener
 beginQuiz.addEventListener('click', startQuiz);
+
+
+
+
+// let logScore = document.createElement('button')
+// logScore.setAttribute('type', 'submit')
+// logScore.textContent = 'Submit Score'
+
+// let userScore = document.createElement('li');
+// userScore.setAttribute('id', 'scores');
+
+// let leaderBoard = document.createElement('ol')
+// leaderBoard.setAttribute('id', 'highScores')
+
+// let userInput = document.createElement('input');
+// userInput.setAttribute('type', 'text')
+
+// leaderBoard.appendChild(userInput);
+
+// mainEl.appendChild(logScore);
+// mainEl.appendChild(leaderBoard);
+// leaderBoard.appendChild(userScore);
+// userScore.appendChild(userPoints);
+
+
+
+// let user = {
+//     id: userId,
+//     initials: document.getElementById('userInput').value,
+//     userScore: userPoints
+// };
+
+// console.log(user.initials)

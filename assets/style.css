@@ -1,7 +1,4 @@
 .answer-list {
     color: blue;
-}
-
-li {
     list-style-type: none;
-}
+};
