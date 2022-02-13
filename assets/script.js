@@ -10,7 +10,8 @@ let beginQuiz = document.querySelector('#start-quiz');
 let mainEl = document.querySelector('#main');
 let welcomeEl = document.querySelector('#welcome');
 let timerText = document.createElement('h3');
-let bodyEl = document.querySelector ('#body')
+let bodyEl = document.querySelector ('#body');
+let leaderBoardEl = document.querySelector('#leader-board');
 
 
 
@@ -226,7 +227,22 @@ const startQuiz = () => {
     
     const saveScores = () => {
         
-        
+        let userInput = document.createElement('input');
+        userInput.setAttribute('type', 'input');
+
+        let leaderList = document.createElement('ol');
+        leaderBoardEl.appendChild(leaderList);
+
+
+        leaderList.appendChild(user); 
+
+    
+        //  let user = {
+        //     initials: document.getElementById('userInput').value,
+        //     userScore: userPoints
+        // };
+
+
 
 
     };
@@ -262,10 +278,6 @@ beginQuiz.addEventListener('click', startQuiz);
 
 
 
-// let user = {
-//     id: userId,
-//     initials: document.getElementById('userInput').value,
-//     userScore: userPoints
-// };
+
 
 // console.log(user.initials)
