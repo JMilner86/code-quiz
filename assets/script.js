@@ -220,64 +220,28 @@ const startQuiz = () => {
     const endQuiz = () => {
         gameEnd = true;
         mainEl.textContent = `The quiz is over!`
-        saveScores();
-    };
-
-
     
-    const saveScores = () => {
         
-        let userInput = document.createElement('input');
-        userInput.setAttribute('type', 'input');
-
-        let leaderList = document.createElement('ol');
-        leaderBoardEl.appendChild(leaderList);
 
 
-        leaderList.appendChild(user); 
 
-    
-        //  let user = {
-        //     initials: document.getElementById('userInput').value,
-        //     userScore: userPoints
-        // };
 
+
+    const saveScores = () => {
+             
+
+             };
 
 
 
     };
+
+
+    
+    
 
 
 
 
 // Event Listener
 beginQuiz.addEventListener('click', startQuiz);
-
-
-
-
-// let logScore = document.createElement('button')
-// logScore.setAttribute('type', 'submit')
-// logScore.textContent = 'Submit Score'
-
-// let userScore = document.createElement('li');
-// userScore.setAttribute('id', 'scores');
-
-// let leaderBoard = document.createElement('ol')
-// leaderBoard.setAttribute('id', 'highScores')
-
-// let userInput = document.createElement('input');
-// userInput.setAttribute('type', 'text')
-
-// leaderBoard.appendChild(userInput);
-
-// mainEl.appendChild(logScore);
-// mainEl.appendChild(leaderBoard);
-// leaderBoard.appendChild(userScore);
-// userScore.appendChild(userPoints);
-
-
-
-
-
-// console.log(user.initials)
