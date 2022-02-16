@@ -12,6 +12,7 @@ let welcomeEl = document.querySelector('#welcome');
 let timerText = document.createElement('h3');
 let bodyEl = document.querySelector ('#body');
 let leaderBoardEl = document.querySelector('#leader-board');
+let users = [];
 
 
 
@@ -219,25 +220,47 @@ const startQuiz = () => {
 // Game over functions
     const endQuiz = () => {
         gameEnd = true;
-        mainEl.textContent = `The quiz is over!`
-    
+       
+        mainEl.innerHTML = `<p>The quiz is over! Enter your initials below to save your score!</p>  </br> Your score: `+ userPoints;
+
+        var saveScoreDiv = document.createElement('div');
+        var saveScoreI = document.createElement('input');
+        var saveScoreBtn = document.createElement('button');
         
-
-
-
-
-
-    const saveScores = () => {
-             
-
-             };
-
+        saveScoreI.setAttribute('id', 'userInput');
+        saveScoreBtn.setAttribute('type', 'submit');
+        saveScoreBtn.textContent = `Submit Score!`;
+        saveScoreDiv.append(saveScoreI, saveScoreBtn);
+        mainEl.appendChild(saveScoreDiv);
 
 
     };
 
 
-    
+    const saveScore = () => {
+        
+        let user = {
+            initials: document.getElementById('userInput').value,
+            score: userPoints
+        }
+        if (!user.initials) {
+            alert('You need to enter your initials!');
+            return false;
+        };
+        users.push(user);
+        
+        localStorage.setItem('users', JSON.stringify(users));
+
+
+        loadScore();
+    }
+
+    const loadScore = () => {
+
+        let savedUsers = localStorage.getItem('users');
+        savedUsers = JSON.parse(savedUsers);
+
+    }
     
 
 
