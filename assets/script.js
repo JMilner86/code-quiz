@@ -259,7 +259,7 @@ const startQuiz = () => {
 
         let savedUsers = localStorage.getItem('users');
         savedUsers = JSON.parse(savedUsers);
-
+        savedUsers.sort((a,b) => b.score - a.score);
     }
     
 
