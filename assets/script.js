@@ -11,7 +11,8 @@ let mainEl = document.querySelector('#main');
 let welcomeEl = document.querySelector('#welcome');
 let timerText = document.createElement('h3');
 let bodyEl = document.querySelector ('#body');
-let leaderBoardEl = document.querySelector('#leader-board');
+let leaderBoardEl = document.createElement('ol');
+
 let users = [];
 
 
@@ -233,12 +234,12 @@ const startQuiz = () => {
         saveScoreDiv.append(saveScoreI, saveScoreBtn);
         mainEl.appendChild(saveScoreDiv);
 
-
+        saveScoreBtn.addEventListener('click', saveScore);
     };
 
 
     const saveScore = () => {
-        
+        loadScore();
         let user = {
             initials: document.getElementById('userInput').value,
             score: userPoints
@@ -249,18 +250,43 @@ const startQuiz = () => {
         };
         users.push(user);
         
+        
+        users.sort((a,b) => b.score - a.score);
         localStorage.setItem('users', JSON.stringify(users));
 
+        for (i = 0; i < users.length; i++) {
+            leaderBoardEl.append(createLi(users[i].initials, users[i].score));
+        };
 
-        loadScore();
-    }
+        
+        mainEl.textContent = `Leader Board`
+        mainEl.appendChild(leaderBoardEl);
 
-    const loadScore = () => {
+
+    };
+        const loadScore = () => {
 
         let savedUsers = localStorage.getItem('users');
+        
+                if (!savedUsers) {
+                return false;
+                     }
         savedUsers = JSON.parse(savedUsers);
-        savedUsers.sort((a,b) => b.score - a.score);
-    }
+        for (i = 0; i < savedUsers.length; i++) {
+            users.push(savedUsers[i]);
+        }
+    };
+
+    const createLi = (initials, score) => {
+        let tempVar = document.createElement('li');
+        tempVar.textContent = initials + ' ' + score;
+        return tempVar;
+    };
+    
+
+
+
+
     
 
 
