@@ -258,7 +258,7 @@ const startQuiz = () => {
             leaderBoardEl.append(createLi(users[i].initials, users[i].score));
         };
 
-        
+
         mainEl.textContent = `Leader Board`
         mainEl.appendChild(leaderBoardEl);
 
@@ -283,13 +283,6 @@ const startQuiz = () => {
         return tempVar;
     };
     
-
-
-
-
-    
-
-
 
 
 // Event Listener
