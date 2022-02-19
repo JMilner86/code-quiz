@@ -12,11 +12,10 @@ let welcomeEl = document.querySelector('#welcome');
 let timerText = document.createElement('h3');
 let bodyEl = document.querySelector ('#body');
 let leaderBoardEl = document.createElement('ol');
-
 let users = [];
 
 
-
+// Setting HTML attributes
 let questionEl = document.createElement('h3');
 let choices = document.createElement('ul');
 choices.setAttribute('class', 'answer-list')
@@ -29,16 +28,13 @@ c.setAttribute('id', 'c');
 let d = document.createElement('li');
 d.setAttribute('id', 'd');
 
-
+// Reused variables, timer variables
 let gameEnd = false
 let seconds = 60;
 let i = 0;
 
 // All of the quiz questions, not about JS. 
-
-
 const quizQuestions = [
-
     {
          question: `On which of the following albums did the song "Houses Of The Holy" appear?`,
          a: `Houses Of The Holy`,
@@ -131,8 +127,7 @@ const quizQuestions = [
     }
 
 ];
-
-// Start quiz functions
+// Start quiz functions/ Timer functions
 let timer = function() {
         let countdown = setInterval(function () {
           if (seconds > 0) {
@@ -151,7 +146,7 @@ let timer = function() {
           };
         }, 1000)
     };
-
+// Start quiz functions, declares 
 const startQuiz = () => {
     
     event.preventDefault();
@@ -261,7 +256,8 @@ const startQuiz = () => {
 
         mainEl.textContent = `Leader Board`
         mainEl.appendChild(leaderBoardEl);
-
+       
+        
 
     };
         const loadScore = () => {
