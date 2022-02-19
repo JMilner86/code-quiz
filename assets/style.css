@@ -1,5 +1,5 @@
-* {
-    background-color: gray;
+body {
+    text-align: center;
 }
 
 #start-quiz {
@@ -16,20 +16,20 @@
     color: #275DB3;
     list-style-type: none;
     font-weight: bolder;
-    border: 2px #402614 solid;
-    
-};
-
-.welcomeEl {
-    font-weight: bolder;
-    color: blue;
 }
+
+
 
 .quiz-content {
     text-align: center;
-    max-width: 100%;
-}; 
-
-header p {
-    font-weight: bold;
 }
+
+.quiz-content ul li {
+    border: 2px black solid;
+    border-radius: 15px;
+    text-align: center;
+    margin-left: 35%;
+    padding: 20px;
+    max-width: 25%;
+
+}; 

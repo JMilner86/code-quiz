@@ -16,7 +16,7 @@ let users = [];
 
 
 // Setting HTML attributes
-let questionEl = document.createElement('h3');
+let questionEl = document.createElement('h2');
 let choices = document.createElement('ul');
 choices.setAttribute('class', 'answer-list')
 let a = document.createElement('li');
@@ -151,7 +151,7 @@ const startQuiz = () => {
     
     event.preventDefault();
     welcomeEl.innerHTML= '';
-    mainEl.appendChild(timerText);
+    mainEl.append(timerText);
 
 
     a.addEventListener('click', checkAns);
@@ -167,7 +167,6 @@ const startQuiz = () => {
 
 
 // Display questions function
-
   const displayQuest = () => {
    if (seconds != 0 && i < quizQuestions.length) {
        
@@ -233,7 +232,7 @@ const startQuiz = () => {
         saveScoreBtn.addEventListener('click', saveScore);
     };
 
-
+    // Saves to local storage
     const saveScore = () => {
         loadScore();
         let user = {
@@ -261,6 +260,7 @@ const startQuiz = () => {
         
 
     };
+    // Loads the scores from Local storage
         const loadScore = () => {
 
         let savedUsers = localStorage.getItem('users');
@@ -280,7 +280,5 @@ const startQuiz = () => {
         return tempVar;
     };
     
-
-
 // Event Listener
 beginQuiz.addEventListener('click', startQuiz);
