@@ -216,7 +216,8 @@ const startQuiz = () => {
 // Game over functions
     const endQuiz = () => {
         gameEnd = true;
-       
+        
+        
         mainEl.innerHTML = `<p>The quiz is over! Enter your initials below to save your score!</p>  </br> Your score: `+ userPoints;
 
         var saveScoreDiv = document.createElement('div');

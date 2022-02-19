@@ -1,9 +1,15 @@
 * {
-    text-align: center;
+    background-color: gray;
 }
 
 #start-quiz {
     background-color: #FF5C45;
+    color: #402614;
+    font-weight: bolder;
+    padding: 14px 40px;
+    font-size: 30px;
+    border-radius: 40px;
+    border: none;
 }
 
 .answer-list {
@@ -14,4 +20,16 @@
     
 };
 
+.welcomeEl {
+    font-weight: bolder;
+    color: blue;
+}
 
+.quiz-content {
+    text-align: center;
+    max-width: 100%;
+}; 
+
+header p {
+    font-weight: bold;
+}
